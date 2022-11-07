@@ -42,7 +42,6 @@ class FilteredTodos with ChangeNotifier {
     TodoList todoList,
   ) {
     List<Todo> filteredTodos;
-
     switch (todoFilter.state.filter) {
       case Filter.all:
         filteredTodos = todoList.state.todos;
@@ -63,7 +62,7 @@ class FilteredTodos with ChangeNotifier {
               .contains(todoSearch.state.searchTerm.toLowerCase()))
           .toList();
     }
-
+    print(filteredTodos);
     _state = _state.copyWith(filteredTodos: filteredTodos);
     notifyListeners();
   }
